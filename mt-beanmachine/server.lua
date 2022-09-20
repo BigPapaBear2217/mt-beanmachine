@@ -183,8 +183,9 @@ RegisterNetEvent('mt-beanmachine:server:Tirar10dolars', function()
    Player.Functions.RemoveMoney('bank', 10)
 end)
 
-RegisterNetEvent('mt-beanmachine:Server:AddItem', function(item, amount)
+RegisterNetEvent('mt-beanmachine:server:AddItem', function(item, amount)
     local Player = QBCore.Functions.GetPlayer(source)
 
     Player.Functions.AddItem(item, amount)
+    TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items[item], "add", amount)
 end)
